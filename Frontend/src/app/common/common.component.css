@@ -1,0 +1,38 @@
+.boxy{
+    border-radius:20px;
+    color: white;
+  }
+
+.shine{
+    background: gray;
+    background-image: linear-gradient(to right,gray 0%, #ffffffe5 20%, gray 40%,gray 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 104px;
+    display: inline-block;
+    position: relative;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeholderShimmer;
+    animation-timing-function: linear;
+}
+
+.card-img-top{
+  height: 90px;
+  width: 90px;
+  background-size: cover;
+}
+
+.text {
+  height: 10px;
+  width: 200px; 
+}
+
+@keyframes placeholderShimmer{
+  0%{
+      background-position: -468px 0;;
+  }
+  100%{
+      background-position: 468px 0;
+  }
+}

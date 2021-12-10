@@ -1,0 +1,63 @@
+#btn{
+  border-radius: 25px;
+  text-align: center;
+  color: black;
+}
+
+#btnn{
+  margin-left: 500px;
+}
+
+#bt{
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+.navbar-element{
+  font-size: 17px;
+}
+
+#five{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  height: 650px;
+}
+
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+#add1{
+  display: flex;flex-direction: row;justify-content: space-between;
+}
+
+#add2{
+  display: flex;flex-direction: row;justify-content: space-between;
+}
+
+.btn{
+  width: 30%;
+}
+
+@media only screen and (max-width: 600px){
+  #add1{
+    flex-direction: column;
+  }
+  #add2{
+    flex-direction: column;
+  }
+}

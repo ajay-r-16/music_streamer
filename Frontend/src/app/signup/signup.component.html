@@ -1,0 +1,85 @@
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h4 class="card-title text-center"><b>SIGN UP</b></h4>
+            <form #f="ngForm" class="form-signin" (ngSubmit)="UserForm(f)">
+              <div class="form-label-group">
+                <input type="text" name="name" class="form-control" ngModel placeholder="Name" required autofocus>
+              </div>
+              <div class="form-label-group">
+                <input type="email" name="inputEmail" class="form-control" ngModel placeholder="Email address" required>
+              </div>
+              <div class="form-label-group">
+                <input type="password" name="inputPassword1" class="form-control" ngModel placeholder="Password"
+                  required>
+              </div>
+              <div class="form-label-group">
+                <input type="password" name="inputPassword2" class="form-control" ngModel placeholder="Confirm Password"
+                  required>
+              </div>
+              <button class="btn btn-lg btn-block text-uppercase" type="submit"
+                style="background: rgb(34, 33, 33); color: white;">Send OTP</button>
+              <hr class="my-4">
+              <p> Have an account? <a routerLink='/'>Login </a></p>
+            </form>
+            <div *ngIf="isload" class="d-flex align-items-center justify-content-center">
+              <strong>Loading...</strong>
+              <div class="spinner-grow " role="status" aria-hidden="true"></div>
+            </div>
+            <div class="alert alert-danger alert-dismissible" id="signup_alert" role="alert">
+              {{response_text}}
+              <button type="button" class="close" (click)="alertclose()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" #content>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color:white;">
+      <div class="modal-header" style="border:none">
+        <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;"><b>Verify OTP</b></h4>
+        <button type="button" class="close" id="xbtn" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #form="ngForm" class="form-signin" (ngSubmit)="OtpForm(form)">
+          <div class="form-label-group">
+            <input type="text" name="otp" class="form-control" ngModel placeholder="Enter OTP" required>
+          </div>
+          <button class="btn btn-lg btn-block text-uppercase" type="submit"
+            style="background: rgb(34, 33, 33); color: white;">Submit</button>
+          <br>
+          <p id="resend_time" ng-model="sec">Resend OTP will be available in {{min | number:'2.'}}:{{sec | number:'2.'}}
+          </p>
+        </form>
+        <button class="btn btn-lg btn-block text-uppercase" id="resend" (click)="resendOtp()"
+          style="background: rgb(34, 33, 33); color: white;">Resend OTP</button>
+        <div *ngIf="isload1" class="d-flex align-items-center justify-content-center">
+          <strong>Loading...</strong>
+          <div class="spinner-grow " role="status" aria-hidden="true"></div>
+        </div>
+        <br>
+        <div class="alert alert-danger alert-dismissible" id="otp_alert" role="alert">
+          <b>{{response_text}}</b>
+          <button type="button" class="close" (click)="alertclose()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

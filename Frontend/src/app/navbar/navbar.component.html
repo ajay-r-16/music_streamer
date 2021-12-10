@@ -1,0 +1,38 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark nav-element" style="background-color: #29333f">
+  <a class="navbar-brand text-warning " routerLink="/home"><b style="font-size: 23px;"><i>MUS<span style="color: red">!</span>C</i></b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-warning" routerLink="/home"><i class="fa fa-home" style="color:red"></i>&nbsp;Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-warning" routerLink="/common/favourites"><i class="fa fa-heart"
+            style="color:red"></i>&nbsp;Favourites</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" name="search" [(ngModel)]="key" type="search" placeholder="Music you love!"
+          aria-label="Search">
+        <a class="btn text-warning  my-2 my-sm-0 out" [routerLink]="'/common/search/'+key" style="border-color: yellow"
+          type="submit" value="search">Search</a>
+      </form>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-warning" href="#" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i id="col" class="fa fa-user" style="color:red"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right " style="padding: 10px;background-color: #29333f"
+          aria-labelledby="navbarDropdown">
+          <h6 class="text-warning">Email :</h6>
+          <input type="text" [ngModel]="user" readonly>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-warning" (click)="logout()">Sign out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

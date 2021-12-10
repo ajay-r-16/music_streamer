@@ -1,0 +1,32 @@
+<div *ngIf="musicDetails['isplaying']" class="container fixed-bottom d-flex flex-row" style="height: 100px;background-color: #1f2833ea;padding: 20px; justify-content: flex-start;align-items: center;">
+    <div>
+        <img [(src)]="musicDetails['imagepath']" style="height: 80px;width: 70px;" alt="Card image cap">
+    </div>
+    <div style="padding-left: 15px;padding-right: 10px;width: 17vw;">
+        <h5 class="text-white text-truncated">{{musicDetails["name"]}}</h5>
+        <marquee scrollamount="4">
+            <h6 class="text-white text-truncated">{{musicDetails["artist"]}}</h6>
+        </marquee>
+    </div>
+    <div class="d-flex flex-column" style="margin-left: auto;flex : 1;padding-left: 30px;">
+        <div>
+            <input type="range" [(ngModel)]="progress" max="3000" class="slider" id="myRange" style="width: 100%;" (touchend)="seek()" (mouseup)="seek()">
+        </div>
+        <div class="d-flex flex-row" style="display: flex;flex-direction: row;justify-content: center;">
+            <div>
+                <i class="fas fa-step-backward" (click)="playprev()" style="color: white;"></i>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div *ngIf="!ispause">
+                <i (click)="toggle(true)" class="fas fa-pause" style="color: white;"></i>
+            </div>
+            <div *ngIf="ispause">
+                <i (click)="toggle(false)" class="fas fa-play" style="color: white;"></i>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div>
+                <i class="fas fa-step-forward" (click)="playNext()" style="color: white;"></i>
+            </div>
+        </div>
+    </div>
+</div>

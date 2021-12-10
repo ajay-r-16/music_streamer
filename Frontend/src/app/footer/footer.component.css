@@ -1,0 +1,8 @@
+@media only screen and (max-width: 600px){
+    h5,h6{
+        font-size: 15px;
+    }
+    .flex-column{
+        padding-left: 15px;
+    }
+}

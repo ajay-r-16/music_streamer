@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+<br><br>
+
+<div style="padding-bottom: 150px;">
+    <div class="container">
+        <div style="display: flex;flex-direction: row;justify-content: space-between;">
+            <div>
+                <h4 class="text-white">Latest songs</h4>
+            </div>
+            <div>
+                <a routerLink="/common/songs" class="text-warning ">See all</a>
+            </div>
+        </div>
+        <div class="overflow-auto" *ngIf="!isloaded"
+            style="display: flex;flex-direction: row; justify-content: space-between;">
+            <div class="card2" *ngFor="let i of checking" style="padding: 15px;">
+                <div class="card">
+                    <div class="card-img-top box shine" alt="Card image cap"></div>
+                </div>
+                <div>
+                    <span class="text-white shine"><b></b></span>
+                </div>
+            </div>
+        </div>
+        <div class="overflow-auto" *ngIf="isloaded"
+            style="display: flex;flex-direction: row; justify-content: space-between;">
+            <div class="card1" *ngFor="let i of recently_added" style="padding: 15px;">
+                <div class="card" (click)="playMusic(i)">
+                    <img class="card-img-top box" [src]="'data:image/jpeg;base64,' + i[2]" alt="Card image cap">
+                </div>
+                <div>
+                    <span class="text-white "><b>{{i[1]}}</b></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="container">
+        <div style="display: flex;flex-direction: row;justify-content: space-between;">
+            <div>
+                <h4 class="text-white">Recently Played</h4>
+            </div>
+            <div>
+                <a routerLink="/common/history" class="text-warning ">See all</a>
+            </div>
+        </div>
+        <div class="overflow-auto" *ngIf="!isloaded"
+            style="display: flex;flex-direction: row; justify-content: space-between;">
+            <div class="card2" *ngFor="let i of checking" style="padding: 15px;">
+                <div class="card">
+                    <div class="card-img-top box shine" alt="Card image cap"></div>
+                </div>
+                <div>
+                    <span class="text-white shine"><b></b></span>
+                </div>
+            </div>
+        </div>
+        <div class="overflow-auto" *ngIf="isloaded"
+            style="display: flex;flex-direction: row; justify-content: space-between;">
+            <div class="card1" *ngFor="let i of recently_played" style="padding: 15px;">
+                <div class="card" (click)="playMusic(i)">
+                    <img class="card-img-top box" [src]="'data:image/jpeg;base64,' + i[2]" alt="Card image cap">
+                </div>
+                <div>
+                    <span class="text-white"><b>{{i[1]}}</b></span>
+                </div>
+            </div>
+            <div class="text-white" *ngIf="!recently_played.length" style="margin: auto;"><b>No recently played</b>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="container">
+        <div style="display: flex;flex-direction: row;justify-content: space-between;">
+            <div>
+                <h4 class="text-white">Category</h4>
+            </div>
+        </div>
+        <div class="overflow-auto" style="display: flex;flex-direction: row;justify-content: space-between; ">
+            <div class="card1" *ngFor="let i of Categories" style="padding: 15px;">
+                <div class="card" [routerLink]="'/common/category/'+i[0]">
+                    <img class="card-img-top box" [src]="i[1]" alt="Card image cap">
+                </div>
+                <div>
+                    <span class="text-white "><b>{{i[0]}}</b></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container">
+        <div style="display: flex;flex-direction: row;justify-content: space-between;">
+            <div>
+                <h4 class="text-white">Languages</h4>
+            </div>
+        </div>
+        <br>
+        <div class="overflow-auto"
+            style="display: flex;flex-direction: row; justify-content: space-between;overflow: hidden;">
+            <div id="card1" *ngFor="let i of Languages">
+                <div style="display: flex; flex-direction: column; align-items: center; margin-right: 15px;">
+                    <div [routerLink]="'/common/language/'+i[0]">
+                        <img class="card-img-top box rounded-circle round-border" [src]="i[1]" alt="Card image cap">
+                    </div>
+                    <div>
+                        <span class="text-white mt-2"><b>{{i[0]}}</b></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

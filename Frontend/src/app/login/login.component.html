@@ -1,0 +1,149 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center"><b>LOGIN</b></h5>
+          <form #f="ngForm" class="form-signin" (ngSubmit)="UserForm(f)">
+            <div class="form-label-group">
+              <input type="email" name="inputEmail" class="form-control" ngModel placeholder="Email address" required
+                autofocus>
+            </div>
+            <div class="form-label-group">
+              <input type="password" name="inputPassword" class="form-control" ngModel placeholder="Password"
+                required>
+            </div>
+            <div class="custom-control custom-checkbox mb-3">
+              <a href="#exampleModal0" data-target="#exampleModal0" data-toggle="modal">Forgot Password?</a>
+            </div>
+            <button class="btn btn-lg btn-block text-uppercase" type="submit"
+              style="background: rgb(34, 33, 33); color: white;"> Login</button>
+            <hr class="my-4">
+            <p>Don't have an account? <a routerLink="/signup">Sign Up </a></p>
+          </form>
+          <div *ngIf="isload" class="d-flex align-items-center justify-content-center">
+            <strong>Loading...</strong>
+            <div class="spinner-grow " role="status" aria-hidden="true"></div>
+          </div>
+          <div class="alert alert-danger alert-success alert-dismissible" id="login_alert" role="alert">
+            {{response_text}}
+            <button type="button" class="close" (click)="alertclose()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true" #content>
+<div class="modal-dialog" role="document">
+  <div class="modal-content" style="background-color:white;">
+    <div class="modal-header" style="border:none">
+      <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;"><b>Reset Password</b></h4>
+      <button type="button" class="close" id="xbtn" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #emailform="ngForm" class="form-signin" (ngSubmit)="EmailForm(emailform)">
+        <div class="form-label-group">
+          <input type="text" name="email" class="form-control" ngModel placeholder="Enter Registered email"
+            required>
+        </div>
+        <button class="btn btn-lg btn-block text-uppercase" type="submit"
+          style="background: rgb(34, 33, 33); color: white;">Send OTP</button>
+        <br>
+      </form>
+      <div *ngIf="isload1" class="d-flex align-items-center justify-content-center">
+        <strong>Loading...</strong>
+        <div class="spinner-grow " role="status" aria-hidden="true"></div>
+      </div>
+      <div class="alert alert-danger alert-dismissible" id="otp_alert0" role="alert">
+        <b>{{response_text}}</b>
+        <button type="button" class="close" (click)="alertclose()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true" #content>
+<div class="modal-dialog" role="document">
+  <div class="modal-content" style="background-color:white;">
+    <div class="modal-header" style="border:none">
+      <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;"><b>Reset Password</b></h4>
+      <button type="button" class="close" id="xbtn" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #passOtp="ngForm" class="form-signin" (ngSubmit)="passOtpForm(passOtp)">
+        <div class="form-label-group">
+          <input type="text" name="otp" class="form-control" ngModel placeholder="Enter OTP" required>
+        </div>
+        <button class="btn btn-lg btn-block text-uppercase" type="submit"
+          style="background: rgb(34, 33, 33); color: white;">Submit</button>
+        <br>
+      </form>
+      <div *ngIf="isload1" class="d-flex align-items-center justify-content-center">
+        <strong>Loading...</strong>
+        <div class="spinner-grow " role="status" aria-hidden="true"></div>
+      </div>
+      <div class="alert alert-danger alert-dismissible" id="otp_alert1" role="alert">
+        <b>{{response_text}}</b>
+        <button type="button" class="close" (click)="alertclose()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" #content>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color:white;">
+      <div class="modal-header" style="border:none">
+        <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;"><b>Reset Password</b></h4>
+        <button type="button" class="close" id="xbtn" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #pass="ngForm" class="form-signin" (ngSubmit)="passForm(pass)">
+          <div class="form-label-group">
+            <input type="password" name="password1" class="form-control" ngModel placeholder="Enter new password"
+              required>
+          </div>
+          <div class="form-label-group">
+            <input type="password" name="password2" class="form-control" ngModel placeholder="Confirm password"
+              required>
+          </div>
+          <button class="btn btn-lg btn-block text-uppercase" type="submit"
+            style="background: rgb(34, 33, 33); color: white;">Submit</button>
+          <br>
+        </form>
+        <div *ngIf="isload1" class="d-flex align-items-center justify-content-center">
+          <strong>Loading...</strong>
+          <div class="spinner-grow " role="status" aria-hidden="true"></div>
+        </div>
+        <div class="alert alert-danger alert-dismissible" id="otp_alert2" role="alert">
+          <b>{{response_text}}</b>
+          <button type="button" class="close" (click)="alertclose()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

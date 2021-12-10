@@ -1,0 +1,132 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark nav-element" style="background-color: #29333f">
+  <a class="navbar-brand text-warning " href="#"><b style="font-size: 23px;"><i>MUS<span
+          style="color: red">!</span>C</i></b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-warning" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i id="col" class="fa fa-user" style="color:red"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right text-warning" style="padding: 10px ;background-color: #29333f;" aria-labelledby="navbarDropdown">
+          <h6 class="text-warning">Email :</h6>
+          <input type="text" [ngModel]="user" readonly>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-warning " href="#">Sign out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid" style="background:url(assets/homeimg.jpg) no-repeat ;height:650px;background-size:100% 100%">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <div class="card-title text-center">
+              <h2><b>Manage Data</b></h2>
+            </div>
+            <div id="add1">
+              <h5 class="text-black">Add a song</h5>
+              <button class="btn " data-toggle="modal" data-target="#examModal1" data-dismiss="modal" style=" width: 30%; background-color:black;">
+                <i class="fa fa-plus text-white"></i>&nbsp;<span class="text-white">Add</span></button>
+            </div><br>         
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="examModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-color:#fde143f8; ">
+      <div class="modal-header" style=" border:none">
+        <div class="container">
+          <div style="display: flex;flex-direction: row;justify-content: center;">
+            <h4 class="modal-title text-black" id="exampleModalLabel"><b>Add a song</b></h4>
+          </div>
+        </div>
+        <button type="button" class="close" id="xbtn" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <p style="text-align: center;" class="text-black">-------------------------------------------------</p>
+      <div class="modal-body">
+        <form #form="ngForm" class="form" (ngSubmit)="SongForm(form)" enctype="multipart/form-data">
+          <div class="row">
+            <div class="col">
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="songname" ngModel placeholder="Song Name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="singerinfo" ngModel placeholder="Singer Info">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="movie" ngModel placeholder="Movie">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <span class="text-black">Category &nbsp;</span>
+                  <select name="category" [(ngModel)]="songModel.category" style="width: 100%;" placeholder="Choose a category">
+                    <option value="rock">Rock</option>
+                    <option value="classical">Classical</option>
+                    <option value="melody">Melody</option>
+                    <option value="pop">Pop</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <span class="text-black">Language &nbsp;</span>
+                  <select name="language" [(ngModel)]="songModel.language" style="width: 100%;" placeholder="Choose a language">
+                    <option value="english">English</option>
+                    <option value="tamil">Tamil</option>
+                    <option value="hindi">Hindi</option>
+                    <option value="telugu">Telugu</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <span class="text-black">Choose audio file: &nbsp;</span>
+                  <input type="file" name="audiofile" id="audiofile" (change)="onFileChanged($event)">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <span class="text-black">Choose image file: &nbsp;</span>
+                  <input type="file" data-buttonText="Image" id="audioImage" (change)="OnImageChanged($event)"
+                    name="audioimage" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;flex-direction: row;justify-content: flex-end;">
+            <input type="submit" id="bt" class="btn text-black" value="&nbsp;&nbsp;Save&nbsp;&nbsp;">
+          </div>
+          <br>
+          <div class="alert alert-success alert-dismissible" id="alert" role="alert">
+            Uploaded Successfully !!
+            <button type="button" class="close" (click)="alertclose()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

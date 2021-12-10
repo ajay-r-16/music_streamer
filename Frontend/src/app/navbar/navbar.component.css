@@ -1,0 +1,23 @@
+#dotted-line{
+  color: white;
+  text-align: center;
+}
+
+#staticEmail{
+  margin-left: 28px;
+  border-radius: 25px;
+  text-align: center; 
+  border: 2px solid white;
+}
+
+.flex_around{
+  justify-content: flex-around;
+}
+
+.out{
+  outline-color:#E63462 ;
+} 
+
+.navbar-element{
+  font-size: 17px;
+}
